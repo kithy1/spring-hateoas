@@ -1,6 +1,8 @@
 package com.example.springhateoas.exceptions;
 
-import java.util.function.Supplier;
+public class OwnerNotFoundException extends RuntimeException {
 
-public class OwnerNotFoundException extends Exception {
+    public OwnerNotFoundException(Long id) {
+        super("OwnerNotFoundException with id: " + id);
+    }
 }

@@ -37,7 +37,7 @@ public class OwnerController {
         return ownerModels;
     }
     @GetMapping("/{id}")
-    public OwnerModel showOwner(@PathVariable Long id) throws OwnerNotFoundException {
+    public OwnerModel showOwner(@PathVariable Long id) {
         OwnerModel ownerModel = new OwnerModelAssembler().toModel(ownerService.findById(id));
         ownerModel.add(WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(OwnerController.class).showOwner(id)).withSelfRel());
         return ownerModel;

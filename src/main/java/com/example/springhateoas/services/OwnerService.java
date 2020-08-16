@@ -33,7 +33,7 @@ public class OwnerService {
         ownerRepository.save(owner);
     }
 
-    public Owner findById(Long id) throws OwnerNotFoundException {
-       return ownerRepository.findById(id).orElseThrow(OwnerNotFoundException::new);
+    public Owner findById(Long id) {
+       return ownerRepository.findById(id).orElseThrow(() -> new OwnerNotFoundException(id));
     }
 }
